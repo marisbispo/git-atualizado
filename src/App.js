@@ -8,6 +8,10 @@ function App() {
   const [name, setName] = React.useState('');
   const [buscar, setBuscar] = React.useState(null);
   const [dados, setDados] = React.useState(null);
+  const [repos, setRepos] = React.useState(null);
+  const [ativarRepos, setAtivarRepos] = React.useState(null);
+  const [starred, setStarred] = React.useState(null);
+  const [ativarStarred, setAtivarStarred] = React.useState(null);
 
   React.useEffect(() => {
     if (buscar) {
@@ -22,6 +26,35 @@ function App() {
     setBuscar(true);
   }
 
+  React.useEffect(() => {
+    if (ativarRepos) {
+      fetch(`https://api.github.com/users/${name}/repos`)
+        .then((resposta) => resposta.json())
+        .then((json) => setRepos(json));
+    }
+    setAtivarRepos(null);
+  }, [ativarRepos, name]);
+
+  React.useEffect(() => {
+    if (ativarStarred) {
+      fetch(`https://api.github.com/users/${name}/starred`)
+        .then((resposta) => resposta.json())
+        .then((json) => setStarred(json));
+    }
+    setAtivarStarred(null);
+  }, [ativarStarred, name]);
+
+  function getRepos() {
+    setStarred(null);
+    setAtivarRepos(true);
+  }
+
+  function getStarred() {
+    setRepos(null);
+    setAtivarStarred(true);
+    console.log('funcionou?');
+  }
+
   return (
     <div>
       <Search
@@ -33,8 +66,15 @@ function App() {
       />
       <button onClick={handleClick}>procurar</button>
       {dados && <UserInfo userinfo={dados} />}
-      <Actions />
-      <Repos />
+      {dados && <Actions getRepos={getRepos} getStarred={getStarred} />}
+      {/* {repos &&
+        repos.map((repo) => (
+          <li key={repo.id}>
+            <a href={repo.html_url}>{repo.name}</a>
+          </li>
+        ))} */}
+      {repos && <Repos repos={repos} title="Repositorios:" />}
+      {starred && <Repos repos={starred} title="Favoritos:" />}
     </div>
   );
 }

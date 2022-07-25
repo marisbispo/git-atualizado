@@ -1,12 +1,15 @@
 import React from 'react';
 
-const Repos = () => {
+const Repos = ({ repos, title }) => {
   return (
     <div>
-      <h3>repositorio</h3>
+      <h3>{title}</h3>
       <ul>
-        <li>repo 1</li>
-        <li>repo 2</li>
+        {repos.map((repo) => (
+          <li key={repo.id}>
+            <a href={repo.html_url}>{repo.name}</a>
+          </li>
+        ))}
       </ul>
     </div>
   );
