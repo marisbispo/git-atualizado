@@ -1,0 +1,12 @@
+li a{
+  list-style: none;
+  color:black;
+  font-size:14px;
+}
+
+.lista{
+  margin-bottom:10px;
+  padding-left: 10px;
+  border-bottom: 1px solid #DEFFC3;
+}
+

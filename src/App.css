@@ -1,0 +1,39 @@
+body{
+  margin:0;
+}
+
+h1, h2{
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+ul, li{
+  padding: 0;
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main{
+  width:500px;
+  margin: 0 auto;
+}
+
+.cabecalho{
+  background: #DEFFC3;
+}
+
+.cabecalho h1{
+  width:150px;
+  font-size: 20px;
+  padding-left: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

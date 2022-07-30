@@ -1,0 +1,51 @@
+.barra{
+
+  background: black;
+
+}
+
+.buscar{
+  width:90%;
+  background:black;
+}
+
+::placeholder{
+  color:white
+}
+
+input{
+  height:30px;
+  width:100%;
+  color:white;
+  border:none;
+  padding: 20px 0 20px 40px;
+  box-sizing: border-box;
+  font-size:16px;
+  background:black;
+
+}
+
+input:focus{
+  outline-color: #DEFFC3;
+  background: black;
+  color:white;
+}
+
+input:active{
+  outline:none;
+  background:black;
+  }
+
+.botao{
+  background-color: black;
+  border:none;
+  color:white;
+  width:10%;
+  cursor: pointer;
+  padding:10px;
+  font-size:16px;
+}
+
+.botao:hover{
+  color: #DEFFC3;
+}
